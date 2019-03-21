@@ -1,0 +1,15 @@
+.pos 0x00
+foo:
+    movl $0, %edx
+    irmovq num, %rax
+    mrmovq 0(%rax), %rbx
+    mrmovq 8(%rax), %rcx
+    cmp %rbx, %rcx
+    jmpl .L1
+.L2
+    addq $1, %edx
+    ret
+.L1:
+    mrmovq (%rcx), %rsp
+    ret
+     

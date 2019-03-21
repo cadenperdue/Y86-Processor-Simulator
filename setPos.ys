@@ -1,0 +1,30 @@
+.pos 0x00    
+irmovq num, %rax
+mrmovq 0(%rax), %rbx
+irmovq $1, %rbx
+rmmovq %rbx, 0(%rax)
+nop
+nop
+mrmovq 8(%rax), %rcx
+irmovq $0, %rcx
+rmmovq %rcx, 8(%rax)
+nop
+nop
+mrmovq 16(%rax), %rsi
+irmovq $0, %rsi
+rmmovq %rsi, 16(%rax)
+nop
+nop
+mrmovq 24(%rax), %r9
+irmovq $1, %r9
+rmmovq %r9, 24(%rax)
+
+        .pos 0x0b8
+        .align 8
+    
+num:    .quad 23
+        .quad -7
+        .quad 0
+        .quad 8
+
+
